@@ -13,12 +13,11 @@ class BinaryTreeNode {
    * incomplete node-- that is, the length of the shortest path from the root to
    * a node with less than two children. */
   minDepthToIncompleteNode() {
-
-    if ( (this.left === null || this.right === null) ) return 1
+    if  (this.left === null || this.right === null) return 1 
 
     return Math.min(
       this.left.minDepthToIncompleteNode(), 
-      this.right.minDepthToIncompleteNode()
+      this.right.minDepthToIncompleteNode() 
     ) + 1
   }
 
@@ -38,7 +37,7 @@ class BinaryTreeNode {
   /** minDepth(): return the minimum depth from the invoking node -- that is,
    * the length of the shortest path from the invoking node to a leaf. */
   minDepth() {
-
+debugger
     const leftDepth = this.left ? this.left.minDepth() : 0;
     const rightDepth = this.right ? this.right.minDepth() : 0;
 
@@ -117,3 +116,12 @@ if (!this.root) return null
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
+let node6 = new BinaryTreeNode(1);
+let node5 = new BinaryTreeNode(1);
+let node4 = new BinaryTreeNode(2);
+let node3 = new BinaryTreeNode(3, node4, node6);
+let node2 = new BinaryTreeNode(5, node3, node5);
+let node1 = new BinaryTreeNode(5);
+let root = new BinaryTreeNode(6, node1, node2);
+let largeTree = new BinaryTree(root);
+   largeTree.minDepthToIncompleteNode()
